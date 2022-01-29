@@ -1,6 +1,6 @@
 # Wordle Searcher
 
-Searches the word list in wordle based on search pattern. Warning: like all forms of cheating, it trivializes the game, and robs you of your enjoyment of it. Use sparingly, or better yet not at all.
+Searches the word list in Wordle based on search pattern. Warning: like all forms of cheating, it trivializes the game, and robs you of your enjoyment of it. Use sparingly, or better yet not at all.
 
 Example usage:
 ```
