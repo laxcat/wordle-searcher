@@ -19,11 +19,12 @@ try:
 
         # each letter of input
         for letter in user_input:
-            if re.search('[A-Z]', letter):
+            if letter.isupper():
                 pattern += letter.lower()
-            elif re.search('[a-z]', letter):
+            elif letter.islower():
                 pattern += f'[^{letter}]'
                 yellows.append(letter)
+            # expecting dash but could be anything that doesn't pass isupper && islower
             else:
                 pattern += '[a-z]'
 
