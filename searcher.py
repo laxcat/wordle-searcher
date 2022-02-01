@@ -8,7 +8,7 @@ try:
     while(True):
         user_input = input('Input search pattern. Lowercase for yellows, uppercase for greens, dashes for greys.\n')
 
-        if len(user_input) != 5:
+        if '|' not in user_input and len(user_input) != 5:
             continue
 
         # will form pattern that expects a green in the proper slot, 
@@ -17,17 +17,25 @@ try:
         # we'll capture yellows and just make sure the word contains them.
         yellows = []
 
+
+        if '|' in user_input:
+            user_input = user_input.split('|')
+
         # each letter of input
         for letter in user_input:
             if letter.isupper():
                 pattern += letter.lower()
             elif letter.islower():
                 pattern += f'[^{letter}]'
-                yellows.append(letter)
+                for letter_part in letter:
+                    if letter_part not in yellows:
+                        yellows.append(letter_part)
             # expecting dash but could be anything that doesn't pass isupper && islower
             else:
                 pattern += '[a-z]'
 
+        y_str = ','.join(yellows)
+        print(f'pattern = {pattern}, contains = {y_str}')
         found = []
 
         # each word in big list
