@@ -8,7 +8,7 @@ wordle-searcher % ./searcher.py
 
 Input search pattern. (enter '?' or 'help' for help)
 Simple: lowercase for yellows, uppercase for greens, dashes for grays
-eg: af---    Ta--k
+eg: af---   Ta--k
 > r--Et
 
 pattern = [^r][a-z][a-z]e[^t]   contains = (r,t)   excludes = ()
@@ -27,11 +27,11 @@ tuner, tuyer, tweer, twier, twoer, twyer, tyler, tyred, tyres, upter
 Input search pattern. (enter '?' or 'help' for help)
 > ?
 Simple: lowercase for yellows, uppercase for greens, dashes for grays
-eg: af---    Ta--k
+eg: af---   Ta--k
 Advanced: use pipe (|) to seperate slots, alowing for multiple yellows per slot
-eg: a|f|-|-|-    a|f|||    a|f|||
+eg: -|at|-|R|-      y|at||R|        re|re|re||ta,swk
 Advanced: use comma then list of letters to indicate gray (excluded) letters
-eg: af---,m    a|f|-|-|-,m    a|f|||,m
+eg: ---Ay,l         S||||,aeiou     re|re|re|ta,swk
 
 Input search pattern. (enter '?' or 'help' for help)
 > ra|||E|t

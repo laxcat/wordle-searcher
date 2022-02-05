@@ -16,13 +16,13 @@ END = '\033[0m'
 
 def show_help():
     print(f'{WHITE}Simple:{END} lowercase for yellows, uppercase for greens, dashes for grays')
-    print(f'eg: af---    Ta--k')
+    print(f'eg: af---   Ta--k')
 
 def show_advanced_help():
     print(f'{WHITE}Advanced:{END} use pipe (|) to seperate slots, alowing for multiple yellows per slot')
-    print(f'eg: a|f|-|-|-    a|f|||    a|f|||')
+    print(f'eg: -|at|-|R|-      y|at||R|        re|re|re||ta,swk')
     print(f'{WHITE}Advanced:{END} use comma then list of letters to indicate gray (excluded) letters')
-    print(f'eg: af---,m    a|f|-|-|-,m    a|f|||,m')
+    print(f'eg: ---Ay,l         S||||,aeiou     re|re|re|ta,swk')
 
 
 try:
