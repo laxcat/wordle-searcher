@@ -109,7 +109,7 @@ try:
         print(f'pattern = {CYAN}{pattern}{END}   ', end='')
         print(f'contains = ({YELLOW}{",".join(yellows)}{END})   ', end='')
         print(f'excludes = ({RED}{",".join(grays)}{END})')
-        def show_answers(answers, COLOR):
+        def show_answers(answers, type, COLOR):
             per_line = get_terminal_size().columns // 7
             print(COLOR, end='')
             length = len(answers)
@@ -119,9 +119,9 @@ try:
                     print(', ', end='')
                 if index % per_line == per_line - 1 or index == length - 1:
                     print()
-            print(f'{length}{END} answers found')
-        show_answers(answers_found, GREEN)
-        show_answers(accepted_found, YELLOW)
+            print(f'{length}{END} found in {type} list')
+        show_answers(answers_found, 'answers', GREEN)
+        show_answers(accepted_found, 'accepted', YELLOW)
 
 # graceful exit on user break
 except KeyboardInterrupt:

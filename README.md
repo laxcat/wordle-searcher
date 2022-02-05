@@ -15,14 +15,14 @@ pattern = [^r][a-z][a-z]e[^t]   contains = (r,t)   excludes = ()
 tiger, other, cater, inter, threw, deter, tamer, hater, eater, later, outer, 
 taper, enter, otter, tuber, ether, timer, three, ester, after, alter, utter, 
 water, voter, tried, tower, truer, taker, meter, steer
-30 answers found
+30 found in answers list
 apter, artel, aster, biter, citer, cuter, dater, doter, gater, ither, kiter, 
 liter, luter, mater, miter, muter, niter, noter, oater, ofter, opter, oxter, 
 pater, peter, strep, strew, taber, taler, tared, tares, taser, tater, taver, 
 tawer, taxer, terek, teres, tiler, tired, tires, titer, toker, toner, toper, 
 tores, toter, toyer, treed, treen, trees, trier, tries, trued, trues, tryer, 
 tuner, tuyer, tweer, twier, twoer, twyer, tyler, tyred, tyres, upter
-65 answers found
+65 found in accepted list
 
 Input search pattern. (enter '?' or 'help' for help)
 > ?
@@ -34,23 +34,23 @@ Advanced: use comma then list of letters to indicate gray (excluded) letters
 eg: af---,m    a|f|-|-|-,m    a|f|||,m
 
 Input search pattern. (enter '?' or 'help' for help)
-> ra|||E|t     
+> ra|||E|t
 
 pattern = [^ra][a-z][a-z]e[^t]   contains = (r,a,t)   excludes = ()
 cater, tamer, hater, eater, later, taper, water, taker
-8 answers found
+8 found in answers list
 dater, gater, mater, oater, pater, taber, taler, tared, tares, taser, tater, 
 taver, tawer, taxer
-14 answers found
+14 found in accepted list
 
 Input search pattern. (enter '?' or 'help' for help)
 > ra||E|t,sh
 
 pattern = [^ra][a-z]e[^t]   contains = (r,a,t)   excludes = (s,h)
 great, treat, tread, after, alter
-5 answers found
+5 found in answers list
 apter, trefa, trema
-3 answers found
+3 found in accepted list
 
 Input search pattern. (enter '?' or 'help' for help)
 > ^C
