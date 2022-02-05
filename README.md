@@ -44,13 +44,13 @@ taver, tawer, taxer
 14 found in accepted list
 
 Input search pattern. (enter '?' or 'help' for help)
-> ra||E|t,sh
+> ra|||E|t,shw
 
-pattern = [^ra][a-z]e[^t]   contains = (r,a,t)   excludes = (s,h)
-great, treat, tread, after, alter
-5 found in answers list
-apter, trefa, trema
-3 found in accepted list
+pattern = [^ra][a-z][a-z]e[^t]   contains = (r,a,t)   excludes = (s,h,w)
+cater, tamer, eater, later, taper, taker
+6 found in answers list
+dater, gater, mater, oater, pater, taber, taler, tared, tater, taver, taxer
+11 found in accepted list
 
 Input search pattern. (enter '?' or 'help' for help)
 > ^C
