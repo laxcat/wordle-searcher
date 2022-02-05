@@ -3,10 +3,44 @@
 import words
 import re
 import sys
+from os import get_terminal_size
+
+
+CYAN = '\033[96m'
+WHITE = '\033[37m'
+GREEN = '\033[92m'
+YELLOW = '\033[93m'
+RED = '\033[91m'
+END = '\033[0m'
+
+
+def show_help():
+    print(f'{WHITE}Simple:{END} lowercase for yellows, uppercase for greens, dashes for grays')
+    print(f'eg: af---    Ta--k')
+
+def show_advanced_help():
+    print(f'{WHITE}Advanced:{END} use pipe (|) to seperate slots, alowing for multiple yellows per slot')
+    print(f'eg: a|f|-|-|-    a|f|||    a|f|||')
+    print(f'{WHITE}Advanced:{END} use comma then list of letters to indicate gray (excluded) letters')
+    print(f'eg: af---,m    a|f|-|-|-,m    a|f|||,m')
+
 
 try:
+    loop_count = 0
     while(True):
-        user_input = input('Input search pattern. Lowercase for yellows, uppercase for greens, dashes for greys.\n')
+        loop_count += 1
+
+        print()
+        print(f'{WHITE}Input search pattern.{END} (enter \'?\' or \'help\' for help)')
+        if loop_count == 1:
+            show_help()
+        user_input = input('> ')
+
+        # special case to display help
+        if user_input == '?' or user_input == 'help':
+            show_help()
+            show_advanced_help()
+            continue
 
         is_complex = bool('|' in user_input)
         has_gray = bool(',' in user_input)
@@ -47,32 +81,47 @@ try:
             else:
                 pattern += '[a-z]'
 
-        y_str = ','.join(yellows)
-        g_str = ','.join(grays)
-        print(f'pattern = {pattern}  contains = {y_str}  excludes = {g_str}')
-        found = []
-
-        # each word in big list
-        for word in words.all:
-            # matches green/not-yellow pattern
-            if re.search(pattern, word):
-                # ensure word contains all yellows
-                passed = True
-                for y in yellows:
-                    if y not in word:
-                        passed = False
-                        break
-                for g in grays:
-                    if g in word:
-                        passed = False
-                        break
-                if passed:
-                    found.append(word)
+        # search the word lists
+        def search(words):
+            found = []
+            # each word in big list
+            for word in words:
+                # matches green/not-yellow pattern
+                if re.search(pattern, word):
+                    # ensure word contains all yellows
+                    passed = True
+                    for y in yellows:
+                        if y not in word:
+                            passed = False
+                            break
+                    for g in grays:
+                        if g in word:
+                            passed = False
+                            break
+                    if passed:
+                        found.append(word)
+            return found
+        answers_found = search(words.answers)
+        accepted_found = search(words.accepted)
         
         # results
-        if len(found):
-            print(', '.join(found))
-        print(f'{len(found)} found')
+        print()
+        print(f'pattern = {CYAN}{pattern}{END}   ', end='')
+        print(f'contains = ({YELLOW}{",".join(yellows)}{END})   ', end='')
+        print(f'excludes = ({RED}{",".join(grays)}{END})')
+        def show_answers(answers, COLOR):
+            per_line = get_terminal_size().columns // 7
+            print(COLOR, end='')
+            length = len(answers)
+            for index, word in enumerate(answers):
+                print(word, end='')
+                if index < length - 1:
+                    print(', ', end='')
+                if index % per_line == per_line - 1 or index == length - 1:
+                    print()
+            print(f'{length}{END} answers found')
+        show_answers(answers_found, GREEN)
+        show_answers(accepted_found, YELLOW)
 
 # graceful exit on user break
 except KeyboardInterrupt:
