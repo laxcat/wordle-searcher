@@ -4,6 +4,7 @@ import words
 import re
 import sys
 from os import get_terminal_size
+import readline
 
 
 CYAN = '\033[96m'
